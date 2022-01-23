@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require('path');
+// const mid = require('./middlewares.js');
 
 const PORT = process.env.PORT ?? 3000;
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, 'static')))
+app.use(express.static('static'));
 
 // app.get('/', (req, res) => {
 // 	res.sendFile(path.resolve(__dirname, 'static', 'index.html'))
@@ -15,7 +16,7 @@ app.use(express.static(path.resolve(__dirname, 'static')))
 // })
 
 app.get('/download', (req, res) => {
-    res.download(path.resolve(__dirname, 'static', 'index.html'))
+    res.download(path.resolve(__dirname, 'static', 'index.html'));
 })
 
 app.listen(PORT, () => {
