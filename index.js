@@ -1,19 +1,15 @@
 const express = require('express');
 const path = require('path');
-// const mid = require('./middlewares.js');
+const middleware = require("./Middleware/checkAuth.middleware");
+
 
 const PORT = process.env.PORT ?? 3000;
 const app = express();
 
-app.use(express.static('static'));
 
-// app.get('/', (req, res) => {
-// 	res.sendFile(path.resolve(__dirname, 'static', 'index.html'))
-// })
-//
-// app.get('/features', (req, res) => {
-// 	res.sendFile(path.resolve(__dirname, 'static', 'features.html'))
-// })
+app.get('/', middleware.middleware1, (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'static', 'index.html'))
+})
 
 app.get('/download', (req, res) => {
     res.download(path.resolve(__dirname, 'static', 'index.html'));
