@@ -1,16 +1,16 @@
 function middleware1(req, res, next) {
     req.requestTime = Date.now();
-    next()
+    next();
 }
 
 function middleware2(req, res, next) {
     req.requestTime = Date.now();
-    next()
+    next();
 }
 
 function middleware3(req, res, next) {
     req.requestTime = Date.now();
-    next()
+    next();
 }
 
 module.exports = {
